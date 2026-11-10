@@ -1,0 +1,364 @@
+{
+  "metadata": {
+    "network_name": "Kayseray Hafif Raylı Sistem Ağı",
+    "city": "Kayseri",
+    "valid_date": "2026-11-09",
+    "total_stations": 75,
+    "total_switch_nodes": 1,
+    "lines_count": 4,
+    "routes_count": 8,
+    "active_fleet_count": 80,
+    "center": {
+      "lat": 38.7218925,
+      "lon": 35.4873228,
+      "name": "Cumhuriyet Meydanı"
+    }
+  },
+  "lines": [
+    {
+      "line_id": "LINE_T1",
+      "line_code": "T1",
+      "official_line_name": "T1 Organize Sanayi ↔ İldem 5",
+      "official_length_km": 27.0,
+      "official_travel_time_min": 70,
+      "commercial_speed_kmh": 23.1,
+      "station_count": 43,
+      "color": "#FF3366",
+      "start_station_id": "STN_01",
+      "end_station_id": "STN_43",
+      "status": "OPERATIONAL"
+    },
+    {
+      "line_id": "LINE_T2",
+      "line_code": "T2",
+      "official_line_name": "T2 Cumhuriyet Meydanı ↔ Talas Cemil Baba",
+      "official_length_km": 10.25,
+      "official_travel_time_min": 33,
+      "commercial_speed_kmh": 19.2,
+      "station_count": 18,
+      "color": "#00E676",
+      "start_station_id": "STN_19",
+      "end_station_id": "STN_55",
+      "status": "OPERATIONAL"
+    },
+    {
+      "line_id": "LINE_T3",
+      "line_code": "T3",
+      "official_line_name": "T3 Kumsmall AVM ↔ İldem 5",
+      "official_length_km": 30.0,
+      "official_travel_time_min": 78,
+      "commercial_speed_kmh": 23.1,
+      "station_count": 49,
+      "color": "#00E5FF",
+      "start_station_id": "STN_66",
+      "end_station_id": "STN_43",
+      "status": "OPERATIONAL"
+    },
+    {
+      "line_id": "LINE_T4",
+      "line_code": "T4",
+      "official_line_name": "T4 Cumhuriyet Meydanı ↔ Anayurt İzzet Bayraktar Camii",
+      "official_length_km": 10.0,
+      "official_travel_time_min": 32,
+      "commercial_speed_kmh": 18.8,
+      "station_count": 17,
+      "color": "#E040FB",
+      "start_station_id": "STN_19",
+      "end_station_id": "STN_75",
+      "status": "OPERATIONAL"
+    },
+    {
+      "line_id": "LINE_T5",
+      "line_code": "T5",
+      "official_line_name": "T5 Erkilet ↔ Cumhuriyet Meydanı ↔ Millet Bahçesi (Planlanan)",
+      "official_length_km": 17.8,
+      "official_travel_time_min": 38,
+      "commercial_speed_kmh": 28.0,
+      "station_count": 19,
+      "color": "#FFD600",
+      "start_station_id": "ERK_01",
+      "end_station_id": "ERK_09",
+      "tunnel_length_km": 4.0,
+      "status": "PROPOSED"
+    }
+  ],
+  "stations": [
+    {"station_id": "STN_01", "station_name": "Organize Sanayi", "lat_wgs84": 38.738327, "lon_wgs84": 35.3685284, "lines_served": ["T1"], "type": "terminal", "district": "Melikgazi", "is_depot": true},
+    {"station_id": "STN_02", "station_name": "Tınaztepe", "lat_wgs84": 38.7375739, "lon_wgs84": 35.3799352, "lines_served": ["T1"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_03", "station_name": "19 Mayıs", "lat_wgs84": 38.7392898, "lon_wgs84": 35.3882228, "lines_served": ["T1"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_04", "station_name": "Belsin Kürsü", "lat_wgs84": 38.7442845, "lon_wgs84": 35.3923611, "lines_served": ["T1"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_05", "station_name": "Selimiye", "lat_wgs84": 38.7424563, "lon_wgs84": 35.399852, "lines_served": ["T1"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_06", "station_name": "Anafartalar", "lat_wgs84": 38.7408089, "lon_wgs84": 35.4037577, "lines_served": ["T1", "T3"], "type": "transfer", "district": "Melikgazi", "is_hub": true},
+    {"station_id": "STN_07", "station_name": "Keykubat", "lat_wgs84": 38.7392497, "lon_wgs84": 35.4110799, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_08", "station_name": "Sakarya", "lat_wgs84": 38.736178, "lon_wgs84": 35.4177824, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_09", "station_name": "Stadyum", "lat_wgs84": 38.7334796, "lon_wgs84": 35.4242862, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_10", "station_name": "Köprülü Kavşak", "lat_wgs84": 38.7333035, "lon_wgs84": 35.4307427, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_11", "station_name": "Yazı Bağları", "lat_wgs84": 38.7318102, "lon_wgs84": 35.436286, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_12", "station_name": "Esentepe", "lat_wgs84": 38.7296432, "lon_wgs84": 35.4412114, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_13", "station_name": "Yeni Sanayi - DSİ", "lat_wgs84": 38.7296393, "lon_wgs84": 35.4457367, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_14", "station_name": "Osman Kavuncu", "lat_wgs84": 38.7271899, "lon_wgs84": 35.4531568, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_15", "station_name": "Karayolları", "lat_wgs84": 38.7258049, "lon_wgs84": 35.4595346, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_16", "station_name": "Aydınlıkevler", "lat_wgs84": 38.7244515, "lon_wgs84": 35.4661948, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_17", "station_name": "Eski Sanayi", "lat_wgs84": 38.7233665, "lon_wgs84": 35.4713883, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_18", "station_name": "Düvenönü", "lat_wgs84": 38.7207698, "lon_wgs84": 35.4810547, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_19", "station_name": "Cumhuriyet Meydanı", "lat_wgs84": 38.7218925, "lon_wgs84": 35.4873228, "lines_served": ["T1", "T2", "T3", "T4", "T5"], "type": "central_hub", "district": "Melikgazi", "is_hub": true},
+    {"station_id": "STN_20", "station_name": "Hunat Hatun", "lat_wgs84": 38.7232122, "lon_wgs84": 35.4930874, "lines_served": ["T1", "T2", "T3", "T4"], "type": "corridor", "district": "Melikgazi"},
+    {"station_id": "STN_21", "station_name": "Büyükşehir Belediyesi", "lat_wgs84": 38.7246807, "lon_wgs84": 35.4984378, "lines_served": ["T1", "T2", "T3", "T4"], "type": "corridor", "district": "Melikgazi"},
+    {"station_id": "STN_22", "station_name": "Fuzuli", "lat_wgs84": 38.7270475, "lon_wgs84": 35.5068304, "lines_served": ["T1", "T2", "T3", "T4"], "type": "corridor", "district": "Melikgazi"},
+    {"station_id": "STN_23", "station_name": "Alparslan", "lat_wgs84": 38.7286637, "lon_wgs84": 35.5124238, "lines_served": ["T1", "T2", "T3", "T4"], "type": "corridor", "district": "Melikgazi"},
+    {"station_id": "STN_24", "station_name": "Tuna", "lat_wgs84": 38.7306315, "lon_wgs84": 35.5193112, "lines_served": ["T1", "T2", "T3", "T4"], "type": "transfer", "district": "Melikgazi", "is_hub": true},
+    {"station_id": "STN_25", "station_name": "Erciyesevler", "lat_wgs84": 38.7323298, "lon_wgs84": 35.5252531, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_26", "station_name": "Çiftekümbet", "lat_wgs84": 38.7338324, "lon_wgs84": 35.5305518, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_27", "station_name": "Yıldızevler", "lat_wgs84": 38.7381455, "lon_wgs84": 35.537002, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_28", "station_name": "Doğu Terminali", "lat_wgs84": 38.7432501, "lon_wgs84": 35.5427642, "lines_served": ["T1", "T3"], "type": "transfer", "district": "Melikgazi", "is_hub": true},
+    {"station_id": "STN_29", "station_name": "Mimar Sinan Kavşağı", "lat_wgs84": 38.7486943, "lon_wgs84": 35.5489048, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_30", "station_name": "Gökkent", "lat_wgs84": 38.7534276, "lon_wgs84": 35.5543371, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_31", "station_name": "Kumarlı", "lat_wgs84": 38.7584243, "lon_wgs84": 35.5601444, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_32", "station_name": "Harikalar Diyarı", "lat_wgs84": 38.7666545, "lon_wgs84": 35.5650384, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_33", "station_name": "Cırgalan", "lat_wgs84": 38.7695796, "lon_wgs84": 35.5673733, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_34", "station_name": "Ahi Evran", "lat_wgs84": 38.773355, "lon_wgs84": 35.5715285, "lines_served": ["T1", "T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_35", "station_name": "Gesi Kavşağı", "lat_wgs84": 38.776913, "lon_wgs84": 35.5749914, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_36", "station_name": "Beyazşehir", "lat_wgs84": 38.778259, "lon_wgs84": 35.5808762, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_37", "station_name": "TOKİ Kavşağı", "lat_wgs84": 38.779729, "lon_wgs84": 35.5895522, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_38", "station_name": "Millet", "lat_wgs84": 38.7802305, "lon_wgs84": 35.5964285, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_39", "station_name": "İldem 1", "lat_wgs84": 38.782258, "lon_wgs84": 35.6008276, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_40", "station_name": "İldem 2", "lat_wgs84": 38.7842255, "lon_wgs84": 35.6058138, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_41", "station_name": "İldem 3", "lat_wgs84": 38.785146, "lon_wgs84": 35.6120217, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_42", "station_name": "İldem 4", "lat_wgs84": 38.786129, "lon_wgs84": 35.6185893, "lines_served": ["T1", "T3"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_43", "station_name": "İldem 5", "lat_wgs84": 38.7869555, "lon_wgs84": 35.6254264, "lines_served": ["T1", "T3"], "type": "terminal", "district": "Melikgazi", "is_depot": true},
+    {"station_id": "STN_44", "station_name": "Sema Yazar Parkı", "lat_wgs84": 38.7309935, "lon_wgs84": 35.5243172, "lines_served": ["T2", "T4"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_45", "station_name": "Şehit Mustafa Şimşek", "lat_wgs84": 38.7270255, "lon_wgs84": 35.5259926, "lines_served": ["T2", "T4"], "type": "transfer", "district": "Melikgazi", "is_hub": true},
+    {"station_id": "STN_46", "station_name": "Şehit Furkan Doğan", "lat_wgs84": 38.720509, "lon_wgs84": 35.528396, "lines_served": ["T2"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_47", "station_name": "Teknopark", "lat_wgs84": 38.7140765, "lon_wgs84": 35.5310607, "lines_served": ["T2"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_48", "station_name": "Erciyes Üniversitesi", "lat_wgs84": 38.7079575, "lon_wgs84": 35.5310366, "lines_served": ["T2"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_49", "station_name": "Hastaneler", "lat_wgs84": 38.703775, "lon_wgs84": 35.528883, "lines_served": ["T2"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_50", "station_name": "Lojmanlar", "lat_wgs84": 38.700129, "lon_wgs84": 35.5271984, "lines_served": ["T2"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_51", "station_name": "Kızılay Kan Merkezi", "lat_wgs84": 38.697254, "lon_wgs84": 35.5341266, "lines_served": ["T2"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_52", "station_name": "Yurtlar Bölgesi", "lat_wgs84": 38.6957255, "lon_wgs84": 35.5394788, "lines_served": ["T2"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_53", "station_name": "Bahçelievler", "lat_wgs84": 38.694067, "lon_wgs84": 35.5452755, "lines_served": ["T2"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_54", "station_name": "Talas Belediyesi", "lat_wgs84": 38.6926085, "lon_wgs84": 35.5500889, "lines_served": ["T2"], "type": "transfer", "district": "Talas"},
+    {"station_id": "STN_55", "station_name": "Talas Cemil Baba", "lat_wgs84": 38.6885365, "lon_wgs84": 35.5544934, "lines_served": ["T2"], "type": "terminal", "district": "Talas"},
+    {"station_id": "STN_56", "station_name": "Anafartalar 2", "lat_wgs84": 38.7431085, "lon_wgs84": 35.4014075, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_57", "station_name": "Otogar", "lat_wgs84": 38.7483, "lon_wgs84": 35.4042175, "lines_served": ["T3"], "type": "transfer", "district": "Kocasinan", "is_hub": true},
+    {"station_id": "STN_58", "station_name": "Fen Lisesi", "lat_wgs84": 38.754826, "lon_wgs84": 35.408505, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_59", "station_name": "Hurdacılar", "lat_wgs84": 38.7599495, "lon_wgs84": 35.412064, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_60", "station_name": "Psikiyatri Hastanesi", "lat_wgs84": 38.764782, "lon_wgs84": 35.412763, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_61", "station_name": "Şehir Hastanesi", "lat_wgs84": 38.769497, "lon_wgs84": 35.412574, "lines_served": ["T3"], "type": "transfer", "district": "Kocasinan", "is_hub": true},
+    {"station_id": "STN_62", "station_name": "Hastane Konutları", "lat_wgs84": 38.7743555, "lon_wgs84": 35.412387, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_63", "station_name": "Nuh Naci Yazgan Üniversitesi", "lat_wgs84": 38.7791685, "lon_wgs84": 35.4130595, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_64", "station_name": "Mobilyakent 1", "lat_wgs84": 38.7769195, "lon_wgs84": 35.4192995, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_65", "station_name": "Mobilyakent 2", "lat_wgs84": 38.7733945, "lon_wgs84": 35.4257955, "lines_served": ["T3"], "type": "regular", "district": "Kocasinan"},
+    {"station_id": "STN_66", "station_name": "Kumsmall AVM", "lat_wgs84": 38.7776795, "lon_wgs84": 35.4323385, "lines_served": ["T3"], "type": "terminal", "district": "Kocasinan"},
+    {"station_id": "STN_67", "station_name": "Yıldırım Beyazıt", "lat_wgs84": 38.7217214, "lon_wgs84": 35.5291589, "lines_served": ["T4"], "type": "regular", "district": "Melikgazi"},
+    {"station_id": "STN_68", "station_name": "Keçitepesi", "lat_wgs84": 38.7209942, "lon_wgs84": 35.5384875, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_69", "station_name": "Dedeman İmam Hatip Lisesi", "lat_wgs84": 38.72005, "lon_wgs84": 35.5474753, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_70", "station_name": "Germiraltı", "lat_wgs84": 38.7185861, "lon_wgs84": 35.5552216, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_71", "station_name": "Kayseri Üniversitesi Şehit İsmet Eraslan", "lat_wgs84": 38.7134764, "lon_wgs84": 35.5563209, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_72", "station_name": "Halef Hoca", "lat_wgs84": 38.7092068, "lon_wgs84": 35.5569167, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_73", "station_name": "Anayurt Pazar Yeri", "lat_wgs84": 38.7085255, "lon_wgs84": 35.5619913, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_74", "station_name": "Turgut Özal", "lat_wgs84": 38.7064583, "lon_wgs84": 35.56551, "lines_served": ["T4"], "type": "regular", "district": "Talas"},
+    {"station_id": "STN_75", "station_name": "İzzet Bayraktar Camii", "lat_wgs84": 38.7024636, "lon_wgs84": 35.5663687, "lines_served": ["T4"], "type": "terminal", "district": "Talas"},
+    {"station_id": "STN_76", "station_name": "Makas Bölgesi (Meydan Batı)", "lat_wgs84": 38.7213, "lon_wgs84": 35.48504, "lines_served": ["T2", "T4"], "type": "switch", "district": "Melikgazi", "is_passenger_station": false}
+  ],
+  "routes": {
+    "T1_DEP": {
+      "line_code": "T1",
+      "direction_code": "DEPARTURE",
+      "name": "Organize Sanayi → İldem 5",
+      "total_travel_time_min": 70,
+      "stops": [
+        "STN_01", "STN_02", "STN_03", "STN_04", "STN_05", "STN_06", "STN_07", "STN_08",
+        "STN_09", "STN_10", "STN_11", "STN_12", "STN_13", "STN_14", "STN_15", "STN_16",
+        "STN_17", "STN_18", "STN_19", "STN_20", "STN_21", "STN_22", "STN_23", "STN_24",
+        "STN_25", "STN_26", "STN_27", "STN_28", "STN_29", "STN_30", "STN_31", "STN_32",
+        "STN_33", "STN_34", "STN_35", "STN_36", "STN_37", "STN_38", "STN_39", "STN_40",
+        "STN_41", "STN_42", "STN_43"
+      ]
+    },
+    "T1_ARR": {
+      "line_code": "T1",
+      "direction_code": "ARRIVAL",
+      "name": "İldem 5 → Organize Sanayi",
+      "total_travel_time_min": 70,
+      "stops": [
+        "STN_43", "STN_42", "STN_41", "STN_40", "STN_39", "STN_38", "STN_37", "STN_36",
+        "STN_35", "STN_34", "STN_33", "STN_32", "STN_31", "STN_30", "STN_29", "STN_28",
+        "STN_27", "STN_26", "STN_25", "STN_24", "STN_23", "STN_22", "STN_21", "STN_20",
+        "STN_19", "STN_18", "STN_17", "STN_16", "STN_15", "STN_14", "STN_13", "STN_12",
+        "STN_11", "STN_10", "STN_09", "STN_08", "STN_07", "STN_06", "STN_05", "STN_04",
+        "STN_03", "STN_02", "STN_01"
+      ]
+    },
+    "T2_DEP": {
+      "line_code": "T2",
+      "direction_code": "DEPARTURE",
+      "name": "Cumhuriyet Meydanı → Talas Cemil Baba",
+      "total_travel_time_min": 33,
+      "stops": [
+        "STN_19", "STN_20", "STN_21", "STN_22", "STN_23", "STN_24", "STN_44", "STN_45",
+        "STN_46", "STN_47", "STN_48", "STN_49", "STN_50", "STN_51", "STN_52", "STN_53",
+        "STN_54", "STN_55"
+      ]
+    },
+    "T2_ARR": {
+      "line_code": "T2",
+      "direction_code": "ARRIVAL",
+      "name": "Talas Cemil Baba → Cumhuriyet Meydanı",
+      "total_travel_time_min": 33,
+      "stops": [
+        "STN_55", "STN_54", "STN_53", "STN_52", "STN_51", "STN_50", "STN_49", "STN_48",
+        "STN_47", "STN_46", "STN_45", "STN_44", "STN_24", "STN_23", "STN_22", "STN_21",
+        "STN_20", "STN_19"
+      ]
+    },
+    "T3_DEP": {
+      "line_code": "T3",
+      "direction_code": "DEPARTURE",
+      "name": "Kumsmall AVM → İldem 5",
+      "total_travel_time_min": 78,
+      "stops": [
+        "STN_66", "STN_65", "STN_64", "STN_63", "STN_62", "STN_61", "STN_60", "STN_59",
+        "STN_58", "STN_57", "STN_56", "STN_06", "STN_07", "STN_08", "STN_09", "STN_10",
+        "STN_11", "STN_12", "STN_13", "STN_14", "STN_15", "STN_16", "STN_17", "STN_18",
+        "STN_19", "STN_20", "STN_21", "STN_22", "STN_23", "STN_24", "STN_25", "STN_26",
+        "STN_27", "STN_28", "STN_29", "STN_30", "STN_31", "STN_32", "STN_33", "STN_34",
+        "STN_35", "STN_36", "STN_37", "STN_38", "STN_39", "STN_40", "STN_41", "STN_42",
+        "STN_43"
+      ]
+    },
+    "T3_ARR": {
+      "line_code": "T3",
+      "direction_code": "ARRIVAL",
+      "name": "İldem 5 → Kumsmall AVM",
+      "total_travel_time_min": 78,
+      "stops": [
+        "STN_43", "STN_42", "STN_41", "STN_40", "STN_39", "STN_38", "STN_37", "STN_36",
+        "STN_35", "STN_34", "STN_33", "STN_32", "STN_31", "STN_30", "STN_29", "STN_28",
+        "STN_27", "STN_26", "STN_25", "STN_24", "STN_23", "STN_22", "STN_21", "STN_20",
+        "STN_19", "STN_18", "STN_17", "STN_16", "STN_15", "STN_14", "STN_13", "STN_12",
+        "STN_11", "STN_10", "STN_09", "STN_08", "STN_07", "STN_06", "STN_56", "STN_57",
+        "STN_58", "STN_59", "STN_60", "STN_61", "STN_62", "STN_63", "STN_64", "STN_65",
+        "STN_66"
+      ]
+    },
+    "T4_DEP": {
+      "line_code": "T4",
+      "direction_code": "DEPARTURE",
+      "name": "İzzet Bayraktar Camii → Cumhuriyet Meydanı",
+      "total_travel_time_min": 32,
+      "stops": [
+        "STN_75", "STN_74", "STN_73", "STN_72", "STN_71", "STN_70", "STN_69", "STN_68",
+        "STN_67", "STN_45", "STN_44", "STN_24", "STN_23", "STN_22", "STN_21", "STN_20",
+        "STN_19"
+      ]
+    },
+    "T4_ARR": {
+      "line_code": "T4",
+      "direction_code": "ARRIVAL",
+      "name": "Cumhuriyet Meydanı → İzzet Bayraktar Camii",
+      "total_travel_time_min": 32,
+      "stops": [
+        "STN_19", "STN_20", "STN_21", "STN_22", "STN_23", "STN_24", "STN_44", "STN_45",
+        "STN_67", "STN_68", "STN_69", "STN_70", "STN_71", "STN_72", "STN_73", "STN_74",
+        "STN_75"
+      ]
+    }
+  },
+  "timetables_weekday": {
+    "T1_DEP": [
+      "05:10", "05:20", "05:34", "05:39", "05:52", "06:07", "06:08", "06:24", "06:40", "06:55",
+      "06:56", "07:12", "07:28", "07:44", "07:55", "08:00", "08:16", "08:32", "08:48", "09:04",
+      "09:20", "09:36", "09:52", "10:08", "10:24", "10:40", "10:56", "11:12", "11:28", "11:44",
+      "12:00", "12:16", "12:32", "12:48", "13:04", "13:20", "13:23", "13:36", "13:52", "14:08",
+      "14:24", "14:40", "14:56", "15:12", "15:28", "15:44", "16:00", "16:16", "16:32", "16:48",
+      "17:04", "17:20", "17:36", "17:52", "18:08", "18:24", "18:40", "18:56", "19:12", "19:28",
+      "19:44", "20:00", "20:16", "20:32", "20:48", "21:05", "21:25", "21:45", "22:05", "22:25",
+      "22:45", "23:00", "23:15", "23:30"
+    ],
+    "T1_ARR": [
+      "05:30", "06:00", "06:16", "06:32", "06:46", "06:51", "07:04", "07:20", "07:36", "07:52",
+      "08:08", "08:24", "08:40", "08:56", "09:12", "09:28", "09:44", "10:00", "10:16", "10:32",
+      "10:48", "11:04", "11:20", "11:36", "11:52", "12:08", "12:24", "12:40", "12:56", "13:12",
+      "13:28", "13:44", "14:00", "14:16", "14:32", "14:48", "15:04", "15:20", "15:36", "15:52",
+      "16:08", "16:24", "16:40", "16:56", "17:12", "17:28", "17:44", "18:00", "18:16", "18:32",
+      "18:48", "19:04", "19:20", "19:36", "19:52", "20:08", "20:24", "20:40", "20:56", "21:12",
+      "21:28", "21:45", "22:05", "22:25", "22:45", "23:05", "23:25"
+    ],
+    "T2_DEP": [
+      "05:55", "06:14", "06:30", "06:37", "06:46", "07:02", "07:16", "07:25", "07:34", "07:45",
+      "07:56", "08:07", "08:18", "08:25", "08:29", "08:40", "08:51", "09:02", "09:13", "09:24",
+      "09:35", "09:46", "09:58", "10:14", "10:30", "10:46", "11:02", "11:18", "11:34", "11:50",
+      "12:06", "12:22", "12:38", "12:54", "13:10", "13:26", "13:42", "13:53", "13:58", "14:14",
+      "14:30", "14:46", "14:57", "15:08", "15:19", "15:30", "15:41", "15:52", "16:03", "16:14",
+      "16:25", "16:36", "16:47", "16:58", "17:09", "17:20", "17:31", "17:42", "17:53", "18:04",
+      "18:20", "18:36", "18:52", "19:08", "19:24", "19:40", "19:56", "20:12", "20:34", "20:56",
+      "21:18", "21:40", "22:02", "22:24", "22:46", "23:08", "23:30"
+    ],
+    "T2_ARR": [
+      "05:58", "06:14", "06:30", "06:46", "07:02", "07:13", "07:24", "07:35", "07:46", "07:57",
+      "08:08", "08:19", "08:30", "08:41", "08:52", "09:03", "09:10", "09:14", "09:26", "09:42",
+      "09:58", "10:00", "10:14", "10:30", "10:46", "11:02", "11:18", "11:34", "11:50", "12:06",
+      "12:22", "12:38", "12:54", "13:10", "13:26", "13:42", "13:58", "14:14", "14:25", "14:36",
+      "14:47", "14:58", "15:09", "15:20", "15:31", "15:42", "15:53", "16:04", "16:15", "16:26",
+      "16:37", "16:48", "16:59", "17:10", "17:21", "17:32", "17:48", "18:04", "18:12", "18:20",
+      "18:36", "18:52", "19:08", "19:24", "19:40", "20:02", "20:24", "20:40", "20:46", "21:08",
+      "21:30", "21:52", "22:14", "22:36", "22:58", "23:20", "23:42"
+    ],
+    "T3_DEP": [
+      "05:55", "06:08", "06:24", "06:40", "06:56", "07:12", "07:28", "07:44", "08:00", "08:16",
+      "08:32", "08:48", "09:04", "09:20", "09:36", "09:52", "10:08", "10:24", "10:40", "10:56",
+      "11:12", "11:28", "11:44", "12:00", "12:16", "12:32", "12:48", "13:04", "13:20", "13:36",
+      "13:52", "14:08", "14:24", "14:40", "14:56", "15:12", "15:24", "15:34", "15:44", "16:00",
+      "16:16", "16:32", "16:48", "17:04", "17:20", "17:36", "17:52", "18:08", "18:24", "18:40",
+      "18:56", "19:12", "19:28", "19:44", "20:00", "20:16", "20:32", "20:48", "21:07", "21:27",
+      "21:47", "22:07", "22:27", "22:47", "23:07", "23:27"
+    ],
+    "T3_ARR": [
+      "05:45", "06:08", "06:24", "06:40", "06:56", "07:12", "07:28", "07:44", "08:00", "08:16",
+      "08:32", "08:48", "09:04", "09:20", "09:36", "09:52", "10:08", "10:24", "10:40", "10:56",
+      "11:12", "11:28", "11:44", "12:00", "12:16", "12:32", "12:48", "13:04", "13:20", "13:36",
+      "13:52", "14:08", "14:24", "14:40", "14:56", "15:12", "15:28", "15:44", "16:00", "16:16",
+      "16:32", "16:48", "17:04", "17:20", "17:36", "17:52", "18:08", "18:24", "18:40", "18:56",
+      "19:12", "19:28", "19:44", "20:00", "20:16", "20:32", "20:48", "21:04", "21:20", "21:36",
+      "21:55", "22:15", "22:35", "22:55", "23:15", "23:35"
+    ],
+    "T4_DEP": [
+      "05:50", "06:06", "06:22", "06:38", "06:54", "07:10", "07:26", "07:42", "07:58", "08:14",
+      "08:30", "08:46", "09:02", "09:18", "09:34", "09:50", "10:06", "10:22", "10:38", "10:54",
+      "11:10", "11:26", "11:42", "11:58", "12:14", "12:30", "12:46", "13:02", "13:18", "13:34",
+      "13:50", "14:06", "14:22", "14:38", "14:54", "15:10", "15:26", "15:42", "15:58", "16:14",
+      "16:30", "16:46", "17:02", "17:18", "17:34", "17:50", "18:06", "18:22", "18:38", "18:54",
+      "19:10", "19:30", "19:52", "20:14", "20:36", "20:58", "21:20", "21:42", "22:04", "22:26",
+      "22:48", "23:10", "23:32"
+    ],
+    "T4_ARR": [
+      "06:00", "06:22", "06:38", "06:54", "07:10", "07:26", "07:42", "07:58", "08:14", "08:30",
+      "08:46", "09:02", "09:18", "09:34", "09:50", "10:06", "10:22", "10:38", "10:54", "11:10",
+      "11:26", "11:42", "11:58", "12:14", "12:30", "12:46", "13:02", "13:18", "13:34", "13:50",
+      "14:06", "14:22", "14:38", "14:54", "15:10", "15:26", "15:42", "15:58", "16:14", "16:30",
+      "16:46", "17:02", "17:18", "17:34", "17:50", "18:06", "18:22", "18:39", "18:54", "19:10",
+      "19:28", "19:44", "20:04", "20:26", "20:48", "21:10", "21:32", "21:54", "22:16", "22:38",
+      "23:00", "23:22", "23:44"
+    ]
+  },
+  "erkilet_scenarios": {
+    "scenario_a": [
+      {"id": "ERK_A_01", "name": "Bülbülpınarı / 100. Yıl", "lat": 38.8065, "lon": 35.4712, "type": "terminal", "surface": "surface"},
+      {"id": "ERK_A_02", "name": "Erkilet Merkez / Osmangazi", "lat": 38.7915, "lon": 35.4695, "type": "regular", "surface": "surface"},
+      {"id": "ERK_A_03", "name": "Erkilet Bulvarı - Kumsmall Kavşağı", "lat": 38.7745, "lon": 35.4730, "type": "junction", "surface": "surface"},
+      {"id": "ERK_A_04", "name": "Havalimanı Kılçık İstasyonu", "lat": 38.77348, "lon": 35.49468, "type": "airport_spur", "surface": "surface"},
+      {"id": "ERK_A_05", "name": "İl Emniyet / AGÜ Sümer (Tünel Giriş)", "lat": 38.7389, "lon": 35.4766, "type": "portal", "surface": "tunnel"},
+      {"id": "ERK_A_06", "name": "Kayseri Garı / Adalet Sarayı (Yer Altı)", "lat": 38.7315, "lon": 35.4795, "type": "underground", "surface": "tunnel"},
+      {"id": "ERK_A_07", "name": "Cumhuriyet Meydanı (Yer Altı Aktarma)", "lat": 38.72189, "lon": 35.48715, "type": "central_hub", "surface": "tunnel"},
+      {"id": "ERK_A_08", "name": "Döner Kümbet / Seyyid Burhanettin", "lat": 38.71411, "lon": 35.49575, "type": "underground", "surface": "tunnel"},
+      {"id": "ERK_A_09", "name": "Millet Bahçesi (Güney Terminali)", "lat": 38.70383, "lon": 35.50939, "type": "terminal", "surface": "surface"}
+    ],
+    "scenario_b": [
+      {"id": "ERK_B_01", "name": "Bülbülpınarı (Kuzey Uç)", "lat": 38.8065, "lon": 35.4712, "type": "terminal", "surface": "surface"},
+      {"id": "ERK_B_02", "name": "Kayseri Havalimanı (Doğrudan Geçiş)", "lat": 38.77348, "lon": 35.49468, "type": "airport", "surface": "surface"},
+      {"id": "ERK_B_03", "name": "Abdullah Gül Üniversitesi (AGÜ)", "lat": 38.73885, "lon": 35.47454, "type": "regular", "surface": "tunnel"},
+      {"id": "ERK_B_04", "name": "Cumhuriyet Meydanı (Aktarma Düğümü)", "lat": 38.72189, "lon": 35.48715, "type": "central_hub", "surface": "tunnel"},
+      {"id": "ERK_B_05", "name": "Millet Bahçesi (Güney Uç)", "lat": 38.70383, "lon": 35.50939, "type": "terminal", "surface": "surface"}
+    ]
+  }
+}
