@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayseri Tramvay Dijital İkizi | Kayseray 3D Digital Twin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Three.js ve OrbitControls CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <!-- 3D Three.js WebGL Sahnesi -->
+  <div id="threejs-container"></div>
+
+  <!-- Üst Başlık ve Simülasyon Barı -->
+  <header class="top-bar">
+    <div class="logo-area">
+      <div class="logo-badge">KAYSERAY</div>
+      <div class="logo-title">
+        <h1>KAYSERİ TRAMVAY DİJİTAL İKİZİ</h1>
+        <p>3D Ağ Topolojisi, Dinamik Sefer Simülatörü ve T5 Erkilet Laboratuvarı</p>
+      </div>
+    </div>
+
+    <!-- Saat ve Hız Kontrolleri -->
+    <div class="clock-area">
+      <div class="sim-clock" id="sim-clock">08:15:00</div>
+      <select id="day-type-select" style="background: rgba(255,255,255,0.1); color:#fff; border:none; padding:4px 8px; border-radius:6px; font-size:11px; font-weight:600;">
+        <option value="WEEKDAY">Hafta İçi (Pzt-Cum)</option>
+        <option value="SATURDAY">Cumartesi Tarifesi</option>
+        <option value="SUNDAY">Pazar / Resmî Tatil</option>
+      </select>
+      <div class="speed-buttons">
+        <button class="speed-btn" data-speed="0">⏸ Duraklat</button>
+        <button class="speed-btn active" data-speed="1">1x</button>
+        <button class="speed-btn" data-speed="5">5x</button>
+        <button class="speed-btn" data-speed="15">15x</button>
+        <button class="speed-btn" data-speed="60">60x</button>
+      </div>
+    </div>
+
+    <!-- Kamera Önayarları -->
+    <div class="camera-controls">
+      <button class="camera-btn active" data-preset="all">🌐 Tüm Ağ</button>
+      <button class="camera-btn" data-preset="meydan">🏛️ Meydan (Merkez Hub)</button>
+      <button class="camera-btn" data-preset="erkilet">✈️ Erkilet & Havalimanı</button>
+      <button class="camera-btn" data-preset="talas">🎓 Talas & ERÜ</button>
+      <button class="camera-btn" data-preset="kumsmall">🏥 Şehir Hastanesi & AVM</button>
+    </div>
+  </header>
+
+  <!-- Sol Panel: Sistem Metrikleri & Hat Durumu -->
+  <aside class="left-panel">
+    <div class="panel-header">AĞ VE FİLO METRİKLERİ</div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <span class="metric-val" id="val-total-trains">42</span>
+        <span class="metric-lbl">Aktif Tramvay Dizisi</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="val-current-pax">6.420</span>
+        <span class="metric-lbl">Anlık Taşınan Yolcu</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="val-load-factor">%84</span>
+        <span class="metric-lbl">Ağ Doluluk Oranı</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="val-power-mw">7.65 MW</span>
+        <span class="metric-lbl">Şebeke Çekiş Gücü</span>
+      </div>
+    </div>
+
+    <div class="panel-header" style="margin-top: 6px;">İŞLETMEDEKİ VE PLANLANAN HATLAR</div>
+    <div class="lines-list" id="lines-container">
+      <!-- Dinamik Doldurulur -->
+    </div>
+
+    <div style="font-size: 11px; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; border-left: 3px solid var(--accent-blue);">
+      💡 <strong>İpucu:</strong> 3D sahnede herhangi bir tramvaya veya durağa tıklayarak canlı telemetri, doluluk oranı ve bakım bilgilerini inceleyebilirsiniz.
+    </div>
+  </aside>
+
+  <!-- Sağ Panel: Inspector (Seçili Tren veya İstasyon Detay Kartı) -->
+  <aside class="right-panel">
+    <div class="panel-header">CANLI NESNE DENETLEYİCİSİ (INSPECTOR)</div>
+    <div id="inspector-content">
+      <div style="color: var(--text-muted); font-size: 12px; text-align: center; padding: 30px 0;">
+        Harita üzerindeki bir <strong>tramvaya</strong> veya <strong>durağa</strong> tıklayınız.
+      </div>
+    </div>
+  </aside>
+
+  <!-- Alt Çekmece: Arıza Simülasyonu, T5 Erkilet Planlayıcı ve Makale Bilgi Bankası -->
+  <section class="bottom-drawer">
+    <!-- Aktif Arıza Banner'ı (Arıza Varsa Görünür) -->
+    <div id="active-incidents-banner" class="incident-banner" style="display: none;"></div>
+
+    <div class="drawer-tabs">
+      <button class="tab-btn active" data-tab="tab-erkilet">🚄 T5 Erkilet Hattı Simülasyon & Planlama Laboratuvarı</button>
+      <button class="tab-btn" data-tab="tab-incident">⚠️ Arıza & Bakım Olay Simülatörü</button>
+      <button class="tab-btn" data-tab="tab-academic">📚 Akademik Makale Taraması & Planlama Parametreleri</button>
+    </div>
+
+    <div class="drawer-content">
+      <!-- Sekme 1: T5 Erkilet Laboratuvarı -->
+      <div class="tab-pane active" id="tab-erkilet">
+        <div class="sim-controls-grid">
+          <!-- Senaryo Seçici -->
+          <div class="ctrl-card">
+            <label>Erkilet Güzergâh Senaryosu:</label>
+            <select id="erkilet-scenario-select" style="background: rgba(255,255,255,0.1); color:#fff; border:none; padding:6px; border-radius:6px; font-size:12px; font-weight:600;">
+              <option value="scenario_a">Senaryo A: Resmî KBB Projesi (17.8 km, 4 km Tünel, Kılçık Havalimanı & Kumsmall)</option>
+              <option value="scenario_b">Senaryo B: Doğrudan Sıralı Hat (~14.7 km, Havalimanı Doğrudan Geçişli)</option>
+            </select>
+            <button class="action-btn primary" id="btn-add-new-station" style="margin-top: 6px;">➕ Hatta Yeni İstasyon Aç</button>
+          </div>
+
+          <!-- Sefer Sıklığı (Headway) -->
+          <div class="ctrl-card">
+            <div style="display: flex; justify-content: space-between;">
+              <label>Planlanan Sefer Sıklığı (Headway):</label>
+              <span class="slider-val" id="erkilet-headway-val">8 dk</span>
+            </div>
+            <input type="range" id="erkilet-headway-slider" min="4" max="20" step="1" value="8">
+            <div style="font-size: 10px; color: var(--text-muted);">Düşük headway = daha az yolcu beklemesi, daha çok tren gereksinimi.</div>
+          </div>
+
+          <!-- İşletme Hızı -->
+          <div class="ctrl-card">
+            <div style="display: flex; justify-content: space-between;">
+              <label>Hedef Ticari İşletme Hızı:</label>
+              <span class="slider-val" id="erkilet-speed-val">28 km/sa</span>
+            </div>
+            <input type="range" id="erkilet-speed-slider" min="18" max="45" step="1" value="28">
+            <div style="font-size: 10px; color: var(--text-muted);">4 km tünel kesimi sayesinde yüzey trafiğinden izole yüksek seyir hızı.</div>
+          </div>
+
+          <!-- Çıktı Karar Destek Metrikleri -->
+          <div class="ctrl-card" style="background: rgba(255, 214, 0, 0.08); border-color: rgba(255, 214, 0, 0.3);">
+            <label style="color: var(--accent-gold);">Planlama Çıktıları (Karar Desteği):</label>
+            <div style="font-size: 12px; display: flex; flex-direction: column; gap: 4px;">
+              <div>Çevrim Süresi (Cycle): <strong id="calc-cycle-time">88 dk</strong></div>
+              <div>Gereken Filo Boyutu: <strong id="calc-fleet-size">13 Tren</strong></div>
+              <div>Günlük Taşıma Kapasitesi: <strong id="calc-daily-cap">79.920 Yolcu</strong></div>
+              <div>Ortalama Bekleme Süresi: <strong id="calc-wait-time">4.0 dk</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekme 2: Arıza & Olay Simülasyonu -->
+      <div class="tab-pane" id="tab-incident">
+        <div class="sim-controls-grid">
+          <div class="ctrl-card">
+            <label>Mühendislik Arıza / Olay Türü:</label>
+            <select id="incident-type-select" style="background: rgba(255,255,255,0.1); color:#fff; border:none; padding:6px; border-radius:6px; font-size:12px; font-weight:600;">
+              <!-- JS ile doldurulur -->
+            </select>
+          </div>
+
+          <div class="ctrl-card">
+            <label>Arızanın Meydana Geleceği İstasyon / Bölge:</label>
+            <select id="incident-station-select" style="background: rgba(255,255,255,0.1); color:#fff; border:none; padding:6px; border-radius:6px; font-size:12px; font-weight:600;">
+              <!-- JS ile doldurulur -->
+            </select>
+          </div>
+
+          <div class="ctrl-card" style="justify-content: center; gap: 10px;">
+            <button class="action-btn danger" id="btn-trigger-incident">🚨 Arıza Simülasyonunu Başlat</button>
+            <button class="action-btn" id="btn-clear-incidents">✅ Tüm Arızaları Temizle ve Hatları Aç</button>
+          </div>
+
+          <div class="ctrl-card">
+            <label>Sistemsel Etki Mekanizması:</label>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+              Arıza tetiklendiğinde ilgili istasyon çevresindeki trenler acil emniyet freni yapar. Arkadan gelen trenler blok mesafesinde durarak <strong>zincirleme gecikme (train bunching)</strong> oluşturur.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekme 3: Akademik Makale Taraması Bilgi Bankası -->
+      <div class="tab-pane" id="tab-academic">
+        <div style="margin-bottom: 8px; font-size: 11px; color: var(--text-muted);">
+          Yeni bir tramvay hattı planlanırken uluslararası toplu taşıma mühendisliği literatüründe (V. Vuchic - <em>Urban Transit Systems and Technology</em>, TCRP Report 100, UITP Standartları) kullanılan temel parametreler:
+        </div>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>Parametre Kodu</th>
+              <th>Değişken Adı</th>
+              <th>Birim</th>
+              <th>Matematiksel Formül</th>
+              <th>Planlama ve Optimizasyon Amacı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>HEADWAY (H)</strong></td>
+              <td>Sefer Sıklığı</td>
+              <td>dakika</td>
+              <td><code>H = 60 / f = T_cycle / N_fleet</code></td>
+              <td>Pik saatlerde yolcu bekleme süresini azaltırken araç maliyetini dengelemek.</td>
+            </tr>
+            <tr>
+              <td><strong>CYCLE_TIME</strong></td>
+              <td>Çevrim Süresi</td>
+              <td>dakika</td>
+              <td><code>T_cycle = T_gidiş + T_dönüş + 2 × t_layover</code></td>
+              <td>Terminal bekleme sürelerini ve boş km'yi (deadhead) minimize etmek.</td>
+            </tr>
+            <tr>
+              <td><strong>FLEET_SIZE</strong></td>
+              <td>Gerekli Filo Büyüklüğü</td>
+              <td>adet dizi</td>
+              <td><code>N_fleet = ⌈T_cycle / H⌉ × (1 + α_rezerv)</code></td>
+              <td>%12-15 emre amadelik/bakım rezerviyle minimum araçla hattı beslemek.</td>
+            </tr>
+            <tr>
+              <td><strong>DWELL_TIME</strong></td>
+              <td>Durak Bekleme Süresi</td>
+              <td>saniye</td>
+              <td><code>t_dwell = t_fixed + (b1·Biniş + b2·İniş) / Kapı</code></td>
+              <td>Seviyeli peron ve geniş çift kanatlı kapılarla duruş süresini 20-30 sn'de tutmak.</td>
+            </tr>
+            <tr>
+              <td><strong>COMM_SPEED</strong></td>
+              <td>Ticari İşletme Hızı</td>
+              <td>km/sa</td>
+              <td><code>V_comm = Hat_Uzunluğu / Toplam_Seyahat_Süresi</code></td>
+              <td>Öncelikli sinyalizasyon ve tünel kesimi ile hızı 20'den 28 km/sa'e çıkarmak.</td>
+            </tr>
+            <tr>
+              <td><strong>LOAD_FACTOR</strong></td>
+              <td>Doluluk Oranı</td>
+              <td>%</td>
+              <td><code>LF = Anlık_Yolcu / Nominal_Kapasite</code></td>
+              <td>Yolcu konforunu korumak (Pik saatlerde azami %85-95 hedefi).</td>
+            </tr>
+            <tr>
+              <td><strong>ENERGY_SEC</strong></td>
+              <td>Spesifik Cer Tüketimi</td>
+              <td>kWh / araç-km</td>
+              <td><code>SEC = E_traction - E_rejeneratif</code></td>
+              <td>Rejeneratif frenleme ile %25-30 elektrik geri kazanımı sağlamak.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uygulama Scriptleri -->
+  <script src="data/kayseri_network.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/three_view.js"></script>
+  <script src="js/ui_controls.js"></script>
+
+  <script>
+    // Dijital İkiz Uygulamasını Başlat
+    window.addEventListener("DOMContentLoaded", () => {
+      // 1. Simülasyon Motoru
+      const engine = new TramDigitalTwinEngine(KAYSERI_DATA);
+
+      // 2. 3D Three.js Sahnesi
+      const threeView = new Kayseri3DView("threejs-container", engine, (type, data) => {
+        if (window.twinUI) {
+          window.twinUI.showEntityDetails(type, data);
+        }
+      });
+
+      // 3. UI Kontrolörü
+      const ui = new TramUIController(engine, threeView);
+      window.twinEngine = engine;
+      window.twinUI = ui;
+      window.twin3D = threeView;
+
+      // 4. Ana Animasyon Döngüsü (Her 50ms'de bir simülasyon adımı)
+      let lastTime = performance.now();
+      function loop(now) {
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+        engine.step(Math.min(dt, 0.1)); // Max 100ms step cap
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    });
+  </script>
+</body>
+</html>
